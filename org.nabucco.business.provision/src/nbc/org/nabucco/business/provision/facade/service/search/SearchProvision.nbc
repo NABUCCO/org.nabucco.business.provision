@@ -1,0 +1,89 @@
+/*
+* Copyright 2010 PRODYNA AG
+*
+* Licensed under the Eclipse Public License (EPL), Version 1.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.opensource.org/licenses/eclipse-1.0.php or
+* http://www.nabucco-source.org/nabucco-license.html
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+package org.nabucco.business.provision.facade.service.search;
+
+import org.nabucco.framework.base.facade.exception.service.SearchException;
+import org.nabucco.business.provision.facade.message.EquipmentListMsg;
+import org.nabucco.business.provision.facade.message.search.EquipmentSearchRq;
+import org.nabucco.business.provision.facade.message.ProvisionGroupListMsg;
+import org.nabucco.business.provision.facade.message.search.ProvisionGroupSearchRq;
+import org.nabucco.business.provision.facade.message.ProvisionAssignmentListMsg;
+import org.nabucco.business.provision.facade.message.search.ProvisionAssignmentSearchRq;
+import org.nabucco.business.provision.facade.message.SkillListMsg;
+import org.nabucco.business.provision.facade.message.search.SkillSearchRq;
+import org.nabucco.business.provision.facade.message.QualificationListMsg;
+import org.nabucco.business.provision.facade.message.search.QualificationSearchRq;
+import org.nabucco.business.provision.facade.message.SchoolEducationListMsg;
+import org.nabucco.business.provision.facade.message.search.SchoolEducationSearchRq;
+import org.nabucco.business.provision.facade.message.JobEducationListMsg;
+import org.nabucco.business.provision.facade.message.search.JobEducationSearchRq;
+import org.nabucco.business.provision.facade.message.TertiaryEducationListMsg;
+import org.nabucco.business.provision.facade.message.search.TertiaryEducationSearchRq;
+import org.nabucco.business.provision.facade.message.FurtherEducationListMsg;
+import org.nabucco.business.provision.facade.message.search.FurtherEducationSearchRq;
+import org.nabucco.business.provision.facade.message.WorkExperienceListMsg;
+import org.nabucco.business.provision.facade.message.search.WorkExperienceSearchRq;
+
+@Author			Dominic Trumpfheller
+@Company		PRODYNA AG
+@Date			2010-12-01
+@Version		1.0
+@Description	Search Service for Provision
+public Service SearchProvision {
+
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public SkillListMsg searchSkill(SkillSearchRq msg) throws SearchException;
+
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public EquipmentListMsg searchEquipment(EquipmentSearchRq msg) throws SearchException;
+
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public ProvisionGroupListMsg searchProvisionGroup(ProvisionGroupSearchRq msg) throws SearchException;
+
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public ProvisionAssignmentListMsg searchProvisionAssignment(ProvisionAssignmentSearchRq msg) throws SearchException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public QualificationListMsg searchQualification(QualificationSearchRq msg) throws SearchException;
+		
+	@ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public SchoolEducationListMsg searchSchoolEducation(SchoolEducationSearchRq msg) throws SearchException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public JobEducationListMsg searchJobEducation(JobEducationSearchRq msg) throws SearchException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public TertiaryEducationListMsg searchTertiaryEducation(TertiaryEducationSearchRq msg) throws SearchException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public FurtherEducationListMsg searchFurtherEducation(FurtherEducationSearchRq msg) throws SearchException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.resolving
+	public WorkExperienceListMsg searchWorkExperience(WorkExperienceSearchRq msg) throws SearchException;
+		
+
+}

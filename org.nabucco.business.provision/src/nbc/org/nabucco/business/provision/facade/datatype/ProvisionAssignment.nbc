@@ -1,0 +1,76 @@
+/*
+ * Copyright 2010 PRODYNA AG
+ *
+ * Licensed under the Eclipse Public License (EPL), Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.opensource.org/licenses/eclipse-1.0.php or
+ * http://www.nabucco-source.org/nabucco-license.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.nabucco.business.provision.facade.datatype;
+
+import org.nabucco.business.provision.facade.datatype.ProvisionAssignmentHistory;
+import org.nabucco.business.provision.facade.datatype.ProvisionCharacteristic;
+import org.nabucco.business.provision.facade.datatype.ProvisionCharacteristicType;
+import org.nabucco.business.provision.facade.datatype.ProvisionSourceType;
+import org.nabucco.business.provision.facade.datatype.ProvisionUsageType;
+import org.nabucco.business.provision.facade.datatype.RequirementType;
+import org.nabucco.framework.base.facade.datatype.Description;
+import org.nabucco.framework.base.facade.datatype.NabuccoDatatype;
+import org.nabucco.framework.base.facade.datatype.Number;
+import org.nabucco.framework.base.facade.datatype.code.Code;
+import org.nabucco.framework.base.facade.datatype.date.Date;
+import org.nabucco.framework.base.facade.datatype.date.PeriodType;
+
+@Author			Dominic Trumpfheller
+@Company		PRODYNA AG
+@Date			2010-12-01
+@Version		1.0
+public Datatype ProvisionAssignment extends NabuccoDatatype {
+
+	@CodePath nabucco.business.provision.level
+	private Datatype Code[0..1] level;
+
+	private Basetype Date[0..1] dateFrom;
+	
+	private Basetype Date[0..1] dateTill;
+	
+	private Basetype Date[0..1] dateLastUsed;
+	
+	private Basetype Description[0..1] additionals;
+
+	@Default		NONE
+	private Enumeration RequirementType[1] requirementType;
+	
+	private Enumeration ProvisionUsageType[1] provisionUsageType;
+	
+	private Enumeration ProvisionCharacteristicType[1] characteristicType;
+	
+	@Description	The count of units specified by periodType
+	private Basetype Number[0..1] usagePeriodCount;
+
+	@Description	The type of period units
+	private Enumeration PeriodType[0..1] periodType;
+	
+	@Description	The category of the profilion assignment
+	@CodePath	nabucco.business.provision.category
+	private Datatype  Code[0..1] category;
+	
+	@FetchStrategy EAGER
+	@AssociationStrategy AGGREGATION
+	private Datatype ProvisionCharacteristic[1] characteristic;
+	
+	@FetchStrategy LAZY
+	@AssociationStrategy COMPOSITION
+	private Datatype ProvisionAssignmentHistory[0..*] historyList;
+	
+	@Default 	    INTERN
+	private Enumeration ProvisionSourceType[1] sourceType;
+}

@@ -1,0 +1,126 @@
+/*
+* Copyright 2010 PRODYNA AG
+*
+* Licensed under the Eclipse Public License (EPL), Version 1.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.opensource.org/licenses/eclipse-1.0.php or
+* http://www.nabucco-source.org/nabucco-license.html
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+package org.nabucco.business.provision.facade.service.maintain;
+
+import org.nabucco.framework.base.facade.exception.service.MaintainException;
+import org.nabucco.business.provision.facade.message.EquipmentMsg;
+import org.nabucco.business.provision.facade.message.QualificationMsg;
+import org.nabucco.business.provision.facade.message.ProvisionGroupMsg;
+import org.nabucco.business.provision.facade.message.ProvisionAssignmentMsg;
+import org.nabucco.business.provision.facade.message.SkillMsg;
+import org.nabucco.business.provision.facade.message.SchoolEducationMsg;
+import org.nabucco.business.provision.facade.message.JobEducationMsg;
+import org.nabucco.business.provision.facade.message.TertiaryEducationMsg;
+import org.nabucco.business.provision.facade.message.FurtherEducationMsg;
+import org.nabucco.business.provision.facade.message.WorkExperienceMsg;
+import org.nabucco.business.provision.facade.message.UnassignChildMsg;
+import org.nabucco.business.provision.facade.message.MoveProvisionCharacteristicMsg;
+
+@Author			Dominic Trumpfheller
+@Company		PRODYNA AG
+@Date			2010-12-01
+@Version		1.0
+@Description	Maintain Service for Provision
+public Service MaintainProvision {
+
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public SkillMsg maintainSkill(SkillMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public EquipmentMsg maintainEquipment(EquipmentMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public QualificationMsg maintainQualification(QualificationMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public ProvisionGroupMsg maintainProvisionGroup(ProvisionGroupMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	@JoinPoint 		org.nabucco.aspect.constraining
+	@JoinPoint		org.nabucco.aspect.journaling
+	public ProvisionAssignmentMsg maintainProvisionAssignment(ProvisionAssignmentMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public SchoolEducationMsg maintainSchoolEducation(SchoolEducationMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public JobEducationMsg maintainJobEducation(JobEducationMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public TertiaryEducationMsg maintainTertiaryEducation(TertiaryEducationMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public FurtherEducationMsg maintainFurtherEducation(FurtherEducationMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public WorkExperienceMsg maintainWorkExperience(WorkExperienceMsg msg) throws MaintainException;
+		
+    @ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public ProvisionGroupMsg unassignChild(UnassignChildMsg msg) throws MaintainException;
+		
+	@ManualImplementation
+	@JoinPoint		org.nabucco.aspect.permissioning
+	@JoinPoint		org.nabucco.aspect.validating
+	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.resolving
+	public ProvisionGroupMsg moveProvisionCharacteristic(MoveProvisionCharacteristicMsg msg) throws MaintainException;
+		
+}
