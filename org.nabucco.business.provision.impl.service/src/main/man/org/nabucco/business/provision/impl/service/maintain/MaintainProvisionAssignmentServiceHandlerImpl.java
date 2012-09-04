@@ -43,21 +43,37 @@ public class MaintainProvisionAssignmentServiceHandlerImpl extends MaintainProvi
 
     @Override
     protected ProvisionAssignmentMsg maintainProvisionAssignment(ProvisionAssignmentMsg msg) throws MaintainException {
+        ProvisionAssignmentMsg response = new ProvisionAssignmentMsg();
 
-        ProvisionAssignment assignment = msg.getProvisionAssignment();
+        if (msg.getProvisionAssignment() != null) {
+            ProvisionAssignment provisionAssignment = msg.getProvisionAssignment();
+            ProvisionAssignment assignment = this.maintainProvisionAssignment(provisionAssignment);
+            response.setProvisionAssignment(assignment);
+        }
+
+        if (msg.getProvisionAssignmentList() != null) {
+            NabuccoList<ProvisionAssignment> provisionAssignmentList = msg.getProvisionAssignmentList();
+            for (ProvisionAssignment assignment : provisionAssignmentList) {
+                ProvisionAssignment maintainedAssignment = this.maintainProvisionAssignment(assignment);
+                response.getProvisionAssignmentList().add(maintainedAssignment);
+            }
+        }
+
+        return response;
+    }
+
+    private ProvisionAssignment maintainProvisionAssignment(ProvisionAssignment assignment) throws MaintainException {
         try {
             if (assignment.getDatatypeState() == DatatypeState.DELETED) {
                 assignment = this.delete(assignment);
             } else {
                 assignment = this.update(assignment);
             }
+
+            return assignment;
         } catch (PersistenceException e) {
             throw new MaintainException("Error maintaining ProvisionAssignment.", e);
         }
-
-        ProvisionAssignmentMsg response = new ProvisionAssignmentMsg();
-        response.setProvisionAssignment(assignment);
-        return response;
     }
 
     private ProvisionAssignment delete(ProvisionAssignment assignment) throws PersistenceException {

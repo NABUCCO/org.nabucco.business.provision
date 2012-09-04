@@ -1,18 +1,16 @@
 /*
  * Copyright 2012 PRODYNA AG
- *
- * Licensed under the Eclipse Public License (EPL), Version 1.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
+ * 
+ * Licensed under the Eclipse Public License (EPL), Version 1.0 (the "License"); you may not use
+ * this file except in compliance with the License. You may obtain a copy of the License at
+ * 
  * http://www.opensource.org/licenses/eclipse-1.0.php or
  * http://www.nabucco.org/License.html
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under the
+ * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific language governing permissions
+ * and limitations under the License.
  */
 package org.nabucco.business.provision.facade.datatype;
 
@@ -27,7 +25,6 @@ import org.nabucco.business.provision.facade.datatype.ProvisionSourceType;
 import org.nabucco.business.provision.facade.datatype.ProvisionUsageType;
 import org.nabucco.business.provision.facade.datatype.RequirementType;
 import org.nabucco.framework.base.facade.datatype.Datatype;
-import org.nabucco.framework.base.facade.datatype.Description;
 import org.nabucco.framework.base.facade.datatype.NabuccoDatatype;
 import org.nabucco.framework.base.facade.datatype.Number;
 import org.nabucco.framework.base.facade.datatype.code.Code;
@@ -43,6 +40,7 @@ import org.nabucco.framework.base.facade.datatype.property.NabuccoPropertyDescri
 import org.nabucco.framework.base.facade.datatype.property.PropertyAssociationType;
 import org.nabucco.framework.base.facade.datatype.property.PropertyCache;
 import org.nabucco.framework.base.facade.datatype.property.PropertyDescriptorSupport;
+import org.nabucco.framework.base.facade.datatype.text.LongDescription;
 
 /**
  * ProvisionAssignment
@@ -59,7 +57,7 @@ public class ProvisionAssignment extends NabuccoDatatype implements Datatype {
     private static final RequirementType REQUIREMENTTYPE_DEFAULT = RequirementType.NONE;
 
     private static final String[] PROPERTY_CONSTRAINTS = { "m0,1;", "l0,n;u0,n;m0,1;", "l0,n;u0,n;m0,1;",
-            "l0,n;u0,n;m0,1;", "l0,255;u0,n;m0,1;", "m1,1;", "m1,1;", "m1,1;", "l0,n;u0,n;m0,1;", "m0,1;", "m0,1;",
+            "l0,n;u0,n;m0,1;", "l0,4000;u0,n;m0,1;", "m1,1;", "m1,1;", "m1,1;", "l0,n;u0,n;m0,1;", "m0,1;", "m0,1;",
             "m1,1;", "m0,n;", "m1,1;" };
 
     public static final String LEVEL = "level";
@@ -102,7 +100,7 @@ public class ProvisionAssignment extends NabuccoDatatype implements Datatype {
 
     private Date dateLastUsed;
 
-    private Description additionals;
+    private LongDescription additionals;
 
     private RequirementType requirementType;
 
@@ -228,7 +226,7 @@ public class ProvisionAssignment extends NabuccoDatatype implements Datatype {
                 PropertyDescriptorSupport.createBasetype(DATETILL, Date.class, 5, PROPERTY_CONSTRAINTS[2], false));
         propertyMap.put(DATELASTUSED,
                 PropertyDescriptorSupport.createBasetype(DATELASTUSED, Date.class, 6, PROPERTY_CONSTRAINTS[3], false));
-        propertyMap.put(ADDITIONALS, PropertyDescriptorSupport.createBasetype(ADDITIONALS, Description.class, 7,
+        propertyMap.put(ADDITIONALS, PropertyDescriptorSupport.createBasetype(ADDITIONALS, LongDescription.class, 7,
                 PROPERTY_CONSTRAINTS[4], false));
         propertyMap.put(REQUIREMENTTYPE, PropertyDescriptorSupport.createEnumeration(REQUIREMENTTYPE,
                 RequirementType.class, 8, PROPERTY_CONSTRAINTS[5], false));
@@ -308,8 +306,8 @@ public class ProvisionAssignment extends NabuccoDatatype implements Datatype {
         } else if ((property.getName().equals(DATELASTUSED) && (property.getType() == Date.class))) {
             this.setDateLastUsed(((Date) property.getInstance()));
             return true;
-        } else if ((property.getName().equals(ADDITIONALS) && (property.getType() == Description.class))) {
-            this.setAdditionals(((Description) property.getInstance()));
+        } else if ((property.getName().equals(ADDITIONALS) && (property.getType() == LongDescription.class))) {
+            this.setAdditionals(((LongDescription) property.getInstance()));
             return true;
         } else if ((property.getName().equals(REQUIREMENTTYPE) && (property.getType() == RequirementType.class))) {
             this.setRequirementType(((RequirementType) property.getInstance()));
@@ -607,18 +605,18 @@ public class ProvisionAssignment extends NabuccoDatatype implements Datatype {
     /**
      * Missing description at method getAdditionals.
      *
-     * @return the Description.
+     * @return the LongDescription.
      */
-    public Description getAdditionals() {
+    public LongDescription getAdditionals() {
         return this.additionals;
     }
 
     /**
      * Missing description at method setAdditionals.
      *
-     * @param additionals the Description.
+     * @param additionals the LongDescription.
      */
-    public void setAdditionals(Description additionals) {
+    public void setAdditionals(LongDescription additionals) {
         this.additionals = additionals;
     }
 
@@ -632,7 +630,7 @@ public class ProvisionAssignment extends NabuccoDatatype implements Datatype {
             if ((additionals == null)) {
                 return;
             }
-            this.additionals = new Description();
+            this.additionals = new LongDescription();
         }
         this.additionals.setValue(additionals);
     }

@@ -25,6 +25,8 @@ import org.nabucco.business.provision.facade.datatype.ProvisionAssignment;
 @Description	Default message for ProvisionAssignment datatype
 public Message ProvisionAssignmentMsg {
 
-	private Datatype ProvisionAssignment[1] provisionAssignment;
+	private Datatype ProvisionAssignment[0..1] provisionAssignment;
+	
+	private Datatype ProvisionAssignment[0..*] provisionAssignmentList;
 	
 }

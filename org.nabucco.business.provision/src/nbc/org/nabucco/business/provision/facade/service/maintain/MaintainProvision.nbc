@@ -41,6 +41,7 @@ public Service MaintainProvision {
 	@JoinPoint		org.nabucco.aspect.permissioning
 	@JoinPoint		org.nabucco.aspect.validating
 	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.relating
 	@JoinPoint		org.nabucco.aspect.resolving
 	public SkillMsg maintainSkill(SkillMsg msg) throws MaintainException;
 		
@@ -48,6 +49,7 @@ public Service MaintainProvision {
 	@JoinPoint		org.nabucco.aspect.permissioning
 	@JoinPoint		org.nabucco.aspect.validating
 	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.relating
 	@JoinPoint		org.nabucco.aspect.resolving
 	public EquipmentMsg maintainEquipment(EquipmentMsg msg) throws MaintainException;
 		
@@ -55,6 +57,7 @@ public Service MaintainProvision {
 	@JoinPoint		org.nabucco.aspect.permissioning
 	@JoinPoint		org.nabucco.aspect.validating
 	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.relating
 	@JoinPoint		org.nabucco.aspect.resolving
 	public QualificationMsg maintainQualification(QualificationMsg msg) throws MaintainException;
 		
@@ -62,6 +65,7 @@ public Service MaintainProvision {
 	@JoinPoint		org.nabucco.aspect.permissioning
 	@JoinPoint		org.nabucco.aspect.validating
 	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.relating
 	@JoinPoint		org.nabucco.aspect.resolving
 	public ProvisionGroupMsg maintainProvisionGroup(ProvisionGroupMsg msg) throws MaintainException;
 		
@@ -69,6 +73,7 @@ public Service MaintainProvision {
 	@JoinPoint		org.nabucco.aspect.permissioning
 	@JoinPoint		org.nabucco.aspect.validating
 	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.relating
 	@JoinPoint		org.nabucco.aspect.resolving
 	@JoinPoint 		org.nabucco.aspect.constraining
 	@JoinPoint		org.nabucco.aspect.journaling
@@ -78,6 +83,7 @@ public Service MaintainProvision {
 	@JoinPoint		org.nabucco.aspect.permissioning
 	@JoinPoint		org.nabucco.aspect.validating
 	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.relating
 	@JoinPoint		org.nabucco.aspect.resolving
 	public SchoolEducationMsg maintainSchoolEducation(SchoolEducationMsg msg) throws MaintainException;
 		
@@ -120,6 +126,7 @@ public Service MaintainProvision {
 	@JoinPoint		org.nabucco.aspect.permissioning
 	@JoinPoint		org.nabucco.aspect.validating
 	@JoinPoint		org.nabucco.aspect.indexing
+	@JoinPoint		org.nabucco.aspect.relating
 	@JoinPoint		org.nabucco.aspect.resolving
 	public ProvisionGroupMsg moveProvisionCharacteristic(MoveProvisionCharacteristicMsg msg) throws MaintainException;
 		

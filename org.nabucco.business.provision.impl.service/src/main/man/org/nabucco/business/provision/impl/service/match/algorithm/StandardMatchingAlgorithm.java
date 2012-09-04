@@ -174,7 +174,7 @@ public class StandardMatchingAlgorithm implements SkillMatchingAlgorithm {
                         break;
                     }
                     case NONE: {
-                        this.logger.debug("The requirement type of skill assignment is 'none'. ",
+                        logger.debug("The requirement type of skill assignment is 'none'. ",
                                 " Ignoring it and interpreting it as optional requirement type.");
                         // Optional skill is between 0 and 100
                         matchingResult = presentExperience.divide(requiredExperience, MathContext.DECIMAL64);
@@ -221,7 +221,7 @@ public class StandardMatchingAlgorithm implements SkillMatchingAlgorithm {
 
             ProvisionCharacteristic pSkill = avaliableSkill.getCharacteristic();
             ProvisionCharacteristic rSkill = reqSkill.getCharacteristic();
-            if (pSkill.equals(rSkill)) {
+            if (pSkill.getId().equals(rSkill.getId())) {
                 foundSkill = presentSkill;
                 break;
             }

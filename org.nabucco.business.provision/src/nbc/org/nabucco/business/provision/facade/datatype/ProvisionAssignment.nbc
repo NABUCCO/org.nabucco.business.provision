@@ -22,12 +22,12 @@ import org.nabucco.business.provision.facade.datatype.ProvisionCharacteristicTyp
 import org.nabucco.business.provision.facade.datatype.ProvisionSourceType;
 import org.nabucco.business.provision.facade.datatype.ProvisionUsageType;
 import org.nabucco.business.provision.facade.datatype.RequirementType;
-import org.nabucco.framework.base.facade.datatype.Description;
 import org.nabucco.framework.base.facade.datatype.NabuccoDatatype;
 import org.nabucco.framework.base.facade.datatype.Number;
 import org.nabucco.framework.base.facade.datatype.code.Code;
 import org.nabucco.framework.base.facade.datatype.date.Date;
 import org.nabucco.framework.base.facade.datatype.date.PeriodType;
+import org.nabucco.framework.base.facade.datatype.text.LongDescription;
 
 @Author			Dominic Trumpfheller
 @Company		PRODYNA AG
@@ -44,7 +44,7 @@ public Datatype ProvisionAssignment extends NabuccoDatatype {
 	
 	private Basetype Date[0..1] dateLastUsed;
 	
-	private Basetype Description[0..1] additionals;
+	private Basetype LongDescription[0..1] additionals;
 
 	@Default		NONE
 	private Enumeration RequirementType[1] requirementType;
